@@ -1,16 +1,47 @@
 extends KinematicBody2D
 
+onready var shock_wave_area = $ShockArea
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const SPEED = 200
+
+var is_slowed = false
+var is_shocked = false
+
+var velocity = Vector2.ZERO
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	
+func _physics_process(delta):
+	move(delta)
+	animate()
 
+func move(delta):
+	var direction = Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+	direction = direction.normalized()
+	velocity = direction * SPEED
+	if is_shocked:
+		velocity *= -1
+	elif is_slowed:
+		velocity /= 2
+	move_and_slide(velocity, Vector2.ZERO)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func animate():
+	if velocity.x > 0:
+		rotation_degrees = -45
+	elif velocity.x < 0:
+		rotation_degrees = 45
+	else:
+		rotation_degrees = 0
+
+func use_shock_wave():
+	var bodies = shock_wave_area.get_overlapping_bodies()
+	if bodies > 0:
+		for bodie in bodies:
+			bodie.destroy()
+
+func use_dash(direction):
+	pass
