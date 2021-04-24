@@ -21,7 +21,6 @@ export (bool) var activated = false
 var actual_item = "" setget set_actual_item
 var item_charge = 0 setget set_item_charge
 
-signal get_item(item_name)
 
 var velocity = Vector2.ZERO
 
@@ -53,7 +52,7 @@ func use_item():
 			print('Dash used')
 	Global.emit_signal("get_item", "")
 
-func move(delta):
+func move(_delta):
 	var direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
@@ -63,6 +62,7 @@ func move(delta):
 		velocity *= -1
 	if is_slowed:
 		velocity /= 2
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity, Vector2.ZERO)
 
 func animate(delta):
@@ -81,7 +81,7 @@ func use_shock_wave():
 		for bodie in bodies:
 			bodie.destroy()
 
-func use_dash(direction):
+func use_dash(_direction):
 	pass
 	
 func set_is_slowed(new_value):
@@ -97,10 +97,10 @@ func set_is_shocked(new_value):
 	is_shocked = new_value
 	shock_malus.visible = new_value
 	if is_shocked == true:
-		sprite.frame == 1
+		sprite.frame = 1
 		shock_timer.start()
 	else:
-		sprite.frame == 0
+		sprite.frame = 0
 		shock_timer.stop()
 	
 func set_is_shielded(new_value):
