@@ -21,8 +21,10 @@ func _on_Hurtbox_body_entered(player):
 	match(obs_type):
 		TYPE.SHOCK:
 			player.is_shocked = true
+			self.destroy()
 		TYPE.SLOW:
 			player.is_slowed = true
+			self.destroy()
 		TYPE.DEATH:
 			if player.is_shielded:
 				self.destroy()

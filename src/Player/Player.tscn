@@ -1,21 +1,122 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprite/Sonde.png" type="Texture" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprite/Malus-anguille.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprite/Bouclier.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprite/Onde.png" type="Texture" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 142.058
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.8728, 12.0614 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 69.9236
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="Animation" id=6]
+resource_name = "shock"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShockArea/ShockSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 44.9999, 0.0, 44.9999 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ShockArea/ShockSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ShockArea/ShockSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+shape = SubResource( 1 )
 
 [node name="ShockArea" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 
+[node name="ShockSprite" type="Sprite" parent="ShockArea"]
+visible = false
+rotation = 0.785397
+texture = ExtResource( 5 )
+hframes = 2
+frame = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockArea"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
+
+[node name="Bouclier" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="Drone" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="ShockedMalus" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -13 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="ShieldTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ShockTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="SlowTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shock = SubResource( 6 )
+
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
+[connection signal="timeout" from="ShockTimer" to="." method="_on_ShockTimer_timeout"]
+[connection signal="timeout" from="SlowTimer" to="." method="_on_SlowTimer_timeout"]
