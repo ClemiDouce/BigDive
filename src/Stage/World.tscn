@@ -228,6 +228,20 @@ tracks/9/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/10/type = "method"
+tracks/10/path = NodePath("ScoreTimer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
 
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
@@ -242,7 +256,7 @@ __meta__ = {
 }
 
 [node name="Ponton" type="Sprite" parent="Décors"]
-position = Vector2( 0, 50 )
+position = Vector2( -98, 50 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -252,7 +266,7 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 83, 105 )
+position = Vector2( -15, 105 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -292,12 +306,13 @@ margin_top = -2.0
 margin_right = 59.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 9 )
-text = "Score : 1000000"
+text = "Depth : 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HUD-Play" type="TextureButton" parent="GUI"]
+visible = false
 margin_left = 105.0
 margin_top = 90.0
 margin_right = 153.0
@@ -321,10 +336,12 @@ __meta__ = {
 }
 
 [node name="HelpPanels" parent="GUI" instance=ExtResource( 11 )]
+visible = false
 margin_top = -251.0
 margin_bottom = 5.0
 
 [node name="Credits" type="Panel" parent="GUI"]
+visible = false
 anchor_right = 1.0
 margin_bottom = 13.0
 custom_styles/panel = ExtResource( 13 )
@@ -361,6 +378,7 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="GUI"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 73.0
 margin_top = 13.0
 margin_right = 177.0
@@ -378,4 +396,7 @@ anims/startGame = SubResource( 5 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 15 )]
 
+[node name="ScoreTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="GUI/HUD-Play" to="." method="_on_HUDPlay_pressed"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

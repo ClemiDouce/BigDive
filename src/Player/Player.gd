@@ -50,7 +50,7 @@ func use_item():
 			use_shock_wave()
 		'dash':
 			print('Dash used')
-	Global.emit_signal("get_item", "")
+	self.item_charge -= 1
 
 func move(_delta):
 	var direction = Vector2(
@@ -78,6 +78,7 @@ func use_shock_wave():
 	shock_animation.play("shock")
 	var bodies = shock_wave_area.get_overlapping_bodies()
 	if bodies.size() > 0:
+		print('Bodies count : ' + str(bodies.size()))
 		for bodie in bodies:
 			bodie.destroy()
 
@@ -118,6 +119,7 @@ func set_is_shielded(new_value):
 func set_actual_item(new_value):
 	Global.emit_signal("get_item", new_value)
 	actual_item = new_value
+	item_charge = 3
 
 func set_item_charge(new_value):
 	item_charge = new_value
