@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/Obstacle/Obstacle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprite/Anguille.png" type="Texture" id=2]
-[ext_resource path="res://Anguille.gd" type="Script" id=3]
+[ext_resource path="res://src/Obstacle/Anguille.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -29,6 +29,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )
 animation = "move"
+frame = 1
 playing = true
 centered = false
 
@@ -39,3 +40,7 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 14.485, 1.5626 )
 shape = SubResource( 4 )
+
+[node name="VisibilityNotifier2D" parent="." index="3"]
+position = Vector2( 14.5617, 1.4749 )
+scale = Vector2( 1.45417, 0.248505 )

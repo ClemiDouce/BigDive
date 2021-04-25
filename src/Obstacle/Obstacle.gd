@@ -9,7 +9,8 @@ var obs_type = TYPE.DEATH
 
 func start(pos, vel):
 	position = pos
-	velocity = vel
+	velocity = vel * SPEED
+	$Sprite.flip_h = velocity.x > 0
 
 func _physics_process(_delta):
 	move_and_slide(velocity)
@@ -31,3 +32,7 @@ func _on_Hurtbox_body_entered(player):
 				player.is_shielded = false
 			else:
 				player.loose()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Utils/Range.gd" type="Script" id=1]
+
+[node name="Range" type="Node2D"]
+position = Vector2( 1, 0 )
+script = ExtResource( 1 )
+line_color = Color( 0.0705882, 0.588235, 0.788235, 1 )
+width = 2
+
+[node name="Begin" type="Position2D" parent="."]
+
+[node name="End" type="Position2D" parent="."]

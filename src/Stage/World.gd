@@ -22,10 +22,3 @@ func _on_Player_get_item(item_name):
 				powerup_sprite.frame = 0
 			"dash":
 				powerup_sprite.frame = 2
-
-func _on_HUDHelp_pressed():
-	print("Menu Help")
-
-
-func _on_HUDCredit_pressed():
-	print("Menu Credits")

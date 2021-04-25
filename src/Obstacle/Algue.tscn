@@ -28,7 +28,6 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )
-frame = 1
 playing = true
 centered = false
 
@@ -39,3 +38,7 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 8.91905, 9.0677 )
 shape = SubResource( 4 )
+
+[node name="VisibilityNotifier2D" parent="." index="3"]
+position = Vector2( 9, 8.875 )
+scale = Vector2( 0.925, 0.8125 )
