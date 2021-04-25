@@ -29,3 +29,8 @@ func _on_Player_get_item(item_name):
 func _on_ScoreTimer_timeout():
 	self.score += 1
 	$"GUI/HUD-Score/Score".text = "Depth : " + str(score)
+
+
+func _on_Player_player_dead():
+	$ObstacleGenerator.stop()
+	animation.play("death")

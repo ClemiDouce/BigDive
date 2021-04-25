@@ -13,6 +13,8 @@ const SPEED = 200
 const ROTATION_SPEED = 10
 const ROTATION_ANGLE = 33
 
+var ExplosionEffect = preload("res://src/Effect/ExplosionEffect.tscn")
+
 var is_slowed = false setget set_is_slowed
 var is_shocked = false setget set_is_shocked
 var is_shielded = false setget set_is_shielded
@@ -24,6 +26,7 @@ var item_charge = 0 setget set_item_charge
 
 var velocity = Vector2.ZERO
 
+signal player_dead
 
 func _ready():
 	pass
@@ -38,7 +41,13 @@ func _physics_process(delta):
 		animate(delta)
 	
 func loose():
-	queue_free()
+	var death_inst = ExplosionEffect.instance()
+	get_parent().add_child(death_inst)
+	death_inst.position = self.position
+	self.visible = false
+	activated = false
+	yield(get_tree().create_timer(1), "timeout")
+	emit_signal("player_dead")
 	
 func use_item():
 	if actual_item == "":

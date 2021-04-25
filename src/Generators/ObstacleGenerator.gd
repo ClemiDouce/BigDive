@@ -15,6 +15,13 @@ func start():
 	$PowerupTimer.start()
 	$OursinTimer.start()
 
+func stop():
+	for inst in instance_node.get_children():
+		inst.queue_free()
+	$MalusTimer.stop()
+	$PowerupTimer.stop()
+	$OursinTimer.stop()
+
 func generate_oursin():
 	var inst = Oursin.instance()
 	var pos_x = rand_range(range_down.start.x, range_down.end.x)
