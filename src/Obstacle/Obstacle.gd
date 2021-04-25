@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 const SPEED = 100
+const anguille_sound = preload("res://assets/sounds/br_anguille.wav")
+const algue_sound = preload("res://assets/sounds/br_algues.wav")
 
 enum TYPE {SHOCK, SLOW, DEATH}
 
@@ -25,8 +27,10 @@ func _on_Hurtbox_body_entered(player):
 		match(obs_type):
 			TYPE.SHOCK:
 				player.is_shocked = true
+				MusicManager.play_sound(anguille_sound)
 			TYPE.SLOW:
 				player.is_slowed = true
+				MusicManager.play_sound(algue_sound)				
 			TYPE.DEATH:
 				if player.is_shielded:
 					player.is_shielded = false

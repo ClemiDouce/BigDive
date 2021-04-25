@@ -13,27 +13,26 @@
 [ext_resource path="res://src/GUI/HelpPanel/HelpPanels.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/fonts/PixelFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://assets/resource/pixel_style_box.tres" type="StyleBox" id=13]
-[ext_resource path="res://assets/sprite/Logo.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprite/Logo2.png" type="Texture" id=14]
 [ext_resource path="res://src/Generators/ObstacleGenerator.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/video/mu_rickrolled.webm" type="VideoStream" id=16]
 [ext_resource path="res://assets/fonts/Myope.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://assets/sprite/Bottom.png" type="Texture" id=18]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 extra_spacing_top = -12
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 extra_spacing_top = -4
 extra_spacing_bottom = -4
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "death"
+[sub_resource type="Animation" id=3]
 length = 4.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Décors/Ponton:position:x")
@@ -42,7 +41,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -98, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -98, -0.25, 0, 0.25, 0, 0, -2.57, -0.127, 0.25, 0 ),
 "times": PoolRealArray( 1, 2.5 )
 }
 tracks/1/type = "bezier"
@@ -62,7 +61,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 83, -1.3, -0.469, 0.25, 0 ),
+"points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 83, -2.57, -0.127, 0.25, 0 ),
 "times": PoolRealArray( 1, 2.5 )
 }
 tracks/3/type = "bezier"
@@ -222,7 +221,7 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "endgame"
 length = 15.0
 tracks/0/type = "bezier"
@@ -366,9 +365,8 @@ tracks/11/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "intro"
-length = 3.0
+[sub_resource type="Animation" id=5]
+length = 7.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Décors/Ponton:position:x")
 tracks/0/interp = 1
@@ -376,8 +374,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -98, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.5 )
+"points": PoolRealArray( -98, -0.25, 0, 0.25, 0, 0, -2.57, -0.126545, 0.25, 0 ),
+"times": PoolRealArray( 0, 4.5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Décors/Ponton:position:y")
@@ -387,7 +385,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 49, -0.25, 0, 0.25, 0, 49, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.5 )
+"times": PoolRealArray( 0, 4.5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Player:position:x")
@@ -396,8 +394,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 83, -1.3, -0.469, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.5 )
+"points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 83, -2.57, -0.127, 0.25, 0 ),
+"times": PoolRealArray( 0, 4.5 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("Player:position:y")
@@ -407,7 +405,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 105, -0.25, 0, 0.25, 0, 105, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.5 )
+"times": PoolRealArray( 0, 4.5 )
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("GUI/Credits:visible")
@@ -416,7 +414,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -428,7 +426,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -440,7 +438,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -452,7 +450,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 1.5, 2.5 ),
+"times": PoolRealArray( 0, 3.6, 5.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -510,7 +508,7 @@ tracks/12/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("GUI/HUD-Power-up:visible")
@@ -641,7 +639,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"points": PoolRealArray( 49, -0.25, 0, 0.25, 0, -84, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 49, -0.25, 0, 0.54, 141.351, -84, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/11/type = "bezier"
@@ -661,7 +659,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"points": PoolRealArray( 131, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 132, -0.25, 0, 0.54, 141.351, -2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/13/type = "bezier"
@@ -681,14 +679,28 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -133, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0.950855, -0.25, 0, 0.54, 141.351, -133, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3, 130 )
+tracks/15/type = "method"
+tracks/15/path = NodePath(".")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "launch_intro_music"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3, 130 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 80, 3 )
 
 [node name="World" type="Node2D"]
@@ -705,16 +717,17 @@ __meta__ = {
 [node name="Décors" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite" parent="Décors"]
+position = Vector2( 0, -48.8926 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Ponton" type="Sprite" parent="Décors"]
-position = Vector2( 0, 49 )
+position = Vector2( -98, 49 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="Surface" type="Sprite" parent="Décors"]
-position = Vector2( 0, 131 )
+position = Vector2( 0, 82.1074 )
 texture = ExtResource( 6 )
 centered = false
 
@@ -724,11 +737,12 @@ texture = ExtResource( 18 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 83, 105 )
+position = Vector2( -15, 105 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="HUD-Power-up" type="TextureRect" parent="GUI"]
+visible = false
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 25.0
@@ -746,6 +760,7 @@ centered = false
 hframes = 3
 
 [node name="HUD-Score" type="TextureRect" parent="GUI"]
+visible = false
 margin_left = 93.0
 margin_top = 1.0
 margin_right = 159.0
@@ -831,10 +846,11 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="GUI"]
-margin_left = 89.0
-margin_top = 19.0
-margin_right = 176.0
-margin_bottom = 87.0
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 85.0
+margin_top = 10.0
+margin_right = 172.0
+margin_bottom = 78.0
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 14 )
 __meta__ = {
@@ -869,7 +885,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "That's it.
 You hit the bottom
 ..."
@@ -893,7 +909,7 @@ margin_left = 2.0
 margin_top = 14.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "You have survived all the dangers of the deep ..."
 align = 1
 valign = 1
@@ -918,7 +934,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "But it was not in vain ..."
 align = 1
 valign = 1
@@ -944,7 +960,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "What wonderful treasure, what incredible wealth can be found in a box?
 
 It's time to find out !"
@@ -1020,7 +1036,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -42.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "See you later !
 Frerobin and Dupy
 <3"
@@ -1032,10 +1048,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "intro"
-anims/death = SubResource( 2 )
-anims/endgame = SubResource( 5 )
-anims/intro = SubResource( 3 )
-anims/startGame = SubResource( 4 )
+anims/death = SubResource( 3 )
+anims/endgame = SubResource( 4 )
+anims/intro = SubResource( 5 )
+anims/startGame = SubResource( 6 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 15 )]
 
@@ -1052,7 +1068,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
 position = Vector2( 8, 130 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 position = Vector2( 155, 0 )
@@ -1060,7 +1076,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
 position = Vector2( 8, 130 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 position = Vector2( 77, 256 )
@@ -1068,7 +1084,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 position = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
 position = Vector2( 77, -6 )
@@ -1076,7 +1092,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
 position = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 [connection signal="pressed" from="GUI/HUD-Play" to="." method="_on_HUDPlay_pressed"]

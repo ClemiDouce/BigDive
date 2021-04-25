@@ -11,5 +11,5 @@ dest_files=[ "res://.import/mu_gmp2_intro.ogg-2f3f7f8353bdd58899ab9137e492ef2c.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

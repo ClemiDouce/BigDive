@@ -70,7 +70,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="ParticlesMaterial" id=7]
-lifetime_randomness = 1.0
+lifetime_randomness = 0.2
 flag_disable_z = true
 spread = 33.0
 gravity = Vector3( 0, -50, 0 )
@@ -115,6 +115,7 @@ hframes = 4
 visible = false
 position = Vector2( 0, -13 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="ShieldTimer" type="Timer" parent="."]
@@ -139,7 +140,7 @@ one_shot = true
 [node name="DashParticle" type="Particles2D" parent="."]
 emitting = false
 amount = 30
-lifetime = 200.0
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 local_coords = false

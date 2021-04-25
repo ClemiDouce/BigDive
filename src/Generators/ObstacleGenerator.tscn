@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Utils/Range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Generators/ObstacleGenerator.gd" type="Script" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 80, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
 
 [node name="ObstacleGenerator" type="Node2D"]
 script = ExtResource( 2 )
@@ -39,6 +47,11 @@ wait_time = 2.0
 wait_time = 5.0
 
 [node name="Instances" type="Node" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 79, 257 )
+visibility_rect = Rect2( -77.124, -0.992706, 157.119, 50.7348 )
+process_material = SubResource( 1 )
 
 [connection signal="timeout" from="OursinTimer" to="." method="_on_OursinTimer_timeout"]
 [connection signal="timeout" from="MalusTimer" to="." method="_on_MalusTimer_timeout"]

@@ -14,9 +14,10 @@ var score = 0 setget set_score
 
 func _ready():
 	Global.connect("get_item", self, "_on_Player_get_item")
-
+	MusicManager.play_music('menu')
 
 func _on_HUDPlay_pressed():
+	MusicManager.stop_music(0.5)
 	animation.play("startGame")
 
 func _on_Player_get_item(item_name):
@@ -39,9 +40,10 @@ func _on_ScoreTimer_timeout():
 func set_score(new_value):
 	score = new_value
 	$"GUI/HUD-Score/Score".text = "Depth : " + str(score)
-	if score >= 10000:
+	if score >= 1000:
 		emit_signal("goal_achieved")
 		$ScoreTimer.stop()
+		animation.play("endgame")
 
 
 func _on_Player_player_dead():
@@ -57,3 +59,6 @@ func start_player_tween():
 	tween.interpolate_property($Player, 'position', $Player.position, Vector2(80, 30), 
 		3, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
+
+func launch_intro_music():
+	MusicManager.play_music('intro')

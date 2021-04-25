@@ -10,6 +10,13 @@ onready var shield_timer = $ShieldTimer
 onready var shock_animation = $AnimationPlayer
 onready var dash_particle = $DashParticle
 
+const shield_sound = preload("res://assets/sounds/br_bouclier.wav")
+const shield_lost = preload("res://assets/sounds/br_bouclier_eclate.wav")
+const shock_sound = preload("res://assets/sounds/br_onde.wav")
+const game_over = preload("res://assets/sounds/br_gameover.wav")
+const dash_sound = preload("res://assets/sounds/br_dash.wav")
+
+
 var SPEED = 200
 const ROTATION_SPEED = 10
 const ROTATION_ANGLE = 33
@@ -48,6 +55,8 @@ func reset():
 	self.is_slowed = false
 	
 func loose():
+	MusicManager.play_sound(game_over)
+	MusicManager.change_music('menu', 1)
 	reset()
 	var death_inst = ExplosionEffect.instance()
 	get_parent().add_child(death_inst)
@@ -62,10 +71,13 @@ func use_item():
 		return
 	match(actual_item):
 		"shield":
+			MusicManager.play_sound(shield_sound)
 			self.is_shielded = true
 		"shock":
+			MusicManager.play_sound(shock_sound)
 			use_shock_wave()
 		'dash':
+			MusicManager.play_sound(dash_sound)
 			use_dash()
 	self.item_charge -= 1
 
@@ -133,8 +145,10 @@ func set_is_shielded(new_value):
 		self.is_slowed = false
 		shield_timer.start()
 		sprite.frame = 3
+		MusicManager.play_sound(shield)
 	else:
 		sprite.frame = 0
+		MusicManager.play_sound(shield_lost)
 		
 	shield.visible = new_value
 	is_shielded = new_value
