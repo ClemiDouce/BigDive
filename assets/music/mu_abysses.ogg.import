@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_abysses.ogg-2ac2cd9da30e25fff2f7ebeef64bca9e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/mu_abysses.ogg"
+dest_files=[ "res://.import/mu_abysses.ogg-2ac2cd9da30e25fff2f7ebeef64bca9e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

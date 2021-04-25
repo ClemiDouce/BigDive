@@ -29,8 +29,8 @@ var is_shielded = false setget set_is_shielded
 var is_dashing = false
 export (bool) var activated = false
 
-var actual_item = "dash" setget set_actual_item
-var item_charge = 3 setget set_item_charge
+var actual_item = "" setget set_actual_item
+var item_charge = 0 setget set_item_charge
 
 
 var velocity = Vector2.ZERO
@@ -41,18 +41,22 @@ func _ready():
 	pass
 	
 func _process(_delta):
-	if Input.is_action_just_pressed('use_power') and !is_shielded:
+	if Input.is_action_just_pressed('use_power') and activated:
 		use_item()
 	
 func _physics_process(delta):
 	if activated:
 		move(delta)
-		animate(delta)
+	animate(delta)
 
 func reset():
 	self.is_shocked = false
 	self.is_shielded = false
 	self.is_slowed = false
+	self.visible = false
+	activated = false
+	velocity = Vector2.ZERO
+	self.item_charge = 0
 	
 func loose():
 	MusicManager.play_sound(game_over)
@@ -61,8 +65,6 @@ func loose():
 	var death_inst = ExplosionEffect.instance()
 	get_parent().add_child(death_inst)
 	death_inst.position = self.position
-	self.visible = false
-	activated = false
 	yield(get_tree().create_timer(1), "timeout")
 	emit_signal("player_dead")
 	
@@ -71,7 +73,6 @@ func use_item():
 		return
 	match(actual_item):
 		"shield":
-			MusicManager.play_sound(shield_sound)
 			self.is_shielded = true
 		"shock":
 			MusicManager.play_sound(shock_sound)
@@ -81,7 +82,7 @@ func use_item():
 			use_dash()
 	self.item_charge -= 1
 
-func move(delta):
+func move(_delta):
 	var direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
@@ -105,6 +106,8 @@ func animate(delta):
 
 func use_shock_wave():
 	shock_animation.play("shock")
+
+func kill_shock():
 	var bodies = shock_wave_area.get_overlapping_bodies()
 	if bodies.size() > 0:
 		print('Bodies count : ' + str(bodies.size()))
@@ -145,7 +148,7 @@ func set_is_shielded(new_value):
 		self.is_slowed = false
 		shield_timer.start()
 		sprite.frame = 3
-		MusicManager.play_sound(shield)
+		MusicManager.play_sound(shield_sound)
 	else:
 		sprite.frame = 0
 		MusicManager.play_sound(shield_lost)
@@ -156,7 +159,7 @@ func set_is_shielded(new_value):
 func set_actual_item(new_value):
 	Global.emit_signal("get_item", new_value)
 	actual_item = new_value
-	item_charge = 3
+	item_charge = 1
 
 func set_item_charge(new_value):
 	item_charge = new_value

@@ -42,7 +42,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( -98, -0.25, 0, 0.25, 0, 0, -2.57, -0.127, 0.25, 0 ),
-"times": PoolRealArray( 1, 2.5 )
+"times": PoolRealArray( 1, 3.5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Décors/Ponton:position:y")
@@ -52,7 +52,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 49, -0.25, 0, 0.25, 0, 49, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 1, 2.5 )
+"times": PoolRealArray( 1, 3.5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Player:position:x")
@@ -62,7 +62,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 83, -2.57, -0.127, 0.25, 0 ),
-"times": PoolRealArray( 1, 2.5 )
+"times": PoolRealArray( 1, 3.5 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("Player:position:y")
@@ -72,7 +72,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 105, -0.25, 0, 0.25, 0, 105, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 1, 2.5 )
+"times": PoolRealArray( 1, 3.5 )
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("GUI/Credits:visible")
@@ -245,56 +245,24 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 3 )
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Player:activated")
+tracks/2/path = NodePath("GUI/EndVideo:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("Player:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 80, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 15 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Player:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( 20, -0.25, 0, 0.25, 0, 221, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 15 )
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("GUI/EndVideo:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0, 15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "method"
-tracks/6/path = NodePath("GUI/EndVideo/VideoPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath("GUI/EndVideo/VideoPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 15 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -302,66 +270,80 @@ tracks/6/keys = {
 "method": "play"
 } ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("GUI/EndDialog/FirstPanel:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("GUI/EndDialog/FirstPanel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 3, 3.3, 5.7, 6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("GUI/EndDialog/SecondPanel:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/EndDialog/SecondPanel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 5.7, 6, 8.6, 8.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("GUI/EndDialog/ThirdPanel:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("GUI/EndDialog/ThirdPanel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0, 8.6, 8.9, 10.9, 11.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("GUI/EndDialog/EndPanel:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
+tracks/7/type = "value"
+tracks/7/path = NodePath("GUI/EndDialog/EndPanel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0, 10.9, 11.2, 15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/11/type = "method"
-tracks/11/path = NodePath(".")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_player_tween"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("ObstacleGenerator")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
 } ]
 }
 
@@ -717,7 +699,7 @@ __meta__ = {
 [node name="Décors" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite" parent="Décors"]
-position = Vector2( 0, -48.8926 )
+position = Vector2( 0, -133 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -727,7 +709,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Surface" type="Sprite" parent="Décors"]
-position = Vector2( 0, 82.1074 )
+position = Vector2( 0, -2 )
 texture = ExtResource( 6 )
 centered = false
 
@@ -783,6 +765,7 @@ __meta__ = {
 }
 
 [node name="HUD-Play" type="TextureButton" parent="GUI"]
+visible = false
 margin_left = 105.0
 margin_top = 90.0
 margin_right = 153.0
@@ -806,10 +789,12 @@ __meta__ = {
 }
 
 [node name="HelpPanels" parent="GUI" instance=ExtResource( 11 )]
+visible = false
 margin_top = -251.0
 margin_bottom = 5.0
 
 [node name="Credits" type="Panel" parent="GUI"]
+visible = false
 anchor_right = 1.0
 margin_bottom = 13.0
 custom_styles/panel = ExtResource( 13 )
@@ -847,11 +832,10 @@ __meta__ = {
 
 [node name="Logo" type="TextureRect" parent="GUI"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 85.0
-margin_top = 10.0
-margin_right = 172.0
-margin_bottom = 78.0
-rect_scale = Vector2( 0.8, 0.8 )
+margin_left = 40.0
+margin_top = 14.0
+margin_right = 127.0
+margin_bottom = 82.0
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -914,6 +898,9 @@ text = "You have survived all the dangers of the deep ..."
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ThirdPanel" type="Panel" parent="GUI/EndDialog"]
 modulate = Color( 1, 1, 1, 0 )
@@ -996,6 +983,7 @@ margin_top = -80.0
 margin_right = 80.0
 margin_bottom = 80.0
 stream = ExtResource( 16 )
+bus = "Music"
 
 [node name="TopPanel" type="Panel" parent="GUI/EndVideo"]
 margin_right = 160.0
@@ -1058,7 +1046,9 @@ anims/startGame = SubResource( 6 )
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 0.018
 
-[node name="Tween" type="Tween" parent="."]
+[node name="PlayerTween" type="Tween" parent="."]
+
+[node name="ColorTween" type="Tween" parent="."]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -1096,4 +1086,5 @@ shape = SubResource( 8 )
 
 [connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 [connection signal="pressed" from="GUI/HUD-Play" to="." method="_on_HUDPlay_pressed"]
+[connection signal="finished" from="GUI/EndVideo/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

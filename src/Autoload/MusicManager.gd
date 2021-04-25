@@ -8,6 +8,7 @@ onready var tween = $Tween
 const music_game_intro = preload("res://assets/music/mu_gmp2_intro.ogg")
 const music_game_loop = preload("res://assets/music/mu_gmp2_loop.ogg")
 const music_menu = preload("res://assets/music/mu_menu1.ogg")
+const music_abyss = preload("res://assets/music/mu_abysses.ogg")
 
 const MUSIC_BUS_INDEX = 1
 const SOUND_BUS_INDEX = 2
@@ -27,6 +28,8 @@ func get_music(music: String) -> AudioStreamOGGVorbis:
 			return music_game_intro
 		'loop':
 			return music_game_loop
+		'abyss':
+			return music_abyss
 		_:
 			return music_menu
 	

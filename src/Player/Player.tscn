@@ -68,6 +68,26 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+} ]
+}
 
 [sub_resource type="ParticlesMaterial" id=7]
 lifetime_randomness = 0.2
@@ -99,6 +119,7 @@ rotation = 0.785396
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockArea"]
 shape = SubResource( 2 )

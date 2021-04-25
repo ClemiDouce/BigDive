@@ -14,6 +14,8 @@ func start():
 	$MalusTimer.start()
 	$PowerupTimer.start()
 	$OursinTimer.start()
+	$Particles2D.emitting = true
+	$Particles2D.visible = true
 
 func stop():
 	for inst in instance_node.get_children():
@@ -21,6 +23,8 @@ func stop():
 	$MalusTimer.stop()
 	$PowerupTimer.stop()
 	$OursinTimer.stop()
+	$Particles2D.emitting = false
+	$Particles2D.visible = false	
 
 func generate_oursin():
 	var inst = Oursin.instance()

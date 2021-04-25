@@ -3,6 +3,7 @@ extends KinematicBody2D
 const SPEED = 100
 const anguille_sound = preload("res://assets/sounds/br_anguille.wav")
 const algue_sound = preload("res://assets/sounds/br_algues.wav")
+const enemy_dead = preload("res://assets/sounds/br_ennemi_meurt.wav")
 
 enum TYPE {SHOCK, SLOW, DEATH}
 
@@ -18,10 +19,14 @@ func _physics_process(_delta):
 	move_and_slide(velocity)
 
 func destroy():
+	MusicManager.play_sound(enemy_dead)
 	queue_free()
 
 func _on_Hurtbox_body_entered(player):
-	if !player.activated or player.is_dashing:
+	if player.is_shielded:
+		player.is_shielded = false
+		destroy()
+	elif !player.activated or player.is_dashing:
 		destroy()
 	else:
 		match(obs_type):
@@ -32,10 +37,7 @@ func _on_Hurtbox_body_entered(player):
 				player.is_slowed = true
 				MusicManager.play_sound(algue_sound)				
 			TYPE.DEATH:
-				if player.is_shielded:
-					player.is_shielded = false
-				else:
-					player.loose()
+				player.loose()
 		destroy()
 			
 

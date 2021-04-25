@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/resource/pixel_style_box.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/fonts/PixelFont.tres" type="DynamicFont" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/sprite/Power-up-onde.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprite/Power-up-bouclier.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/Myope.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/resource/slider_pixel.tres" type="StyleBox" id=13]
+[ext_resource path="res://assets/sprite/grabber.png" type="Texture" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -66,6 +68,22 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -163, 0 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "goal-option"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 163, 0 ) ]
+}
+
 [sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
@@ -94,6 +112,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -163, 0 ), Vector2( -324, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "option-goal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 163, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -126,6 +160,54 @@ __meta__ = {
 }
 
 [node name="Panels" type="Node2D" parent="."]
+
+[node name="Option" type="Panel" parent="Panels"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -157.0
+margin_top = 131.0
+margin_right = -7.0
+margin_bottom = 248.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panels/Option"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -46.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music_Slider" type="HSlider" parent="Panels/Option"]
+margin_left = 54.0
+margin_top = 30.0
+margin_right = 138.0
+margin_bottom = 46.0
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound_Slider" type="HSlider" parent="Panels/Option"]
+margin_left = 54.0
+margin_top = 60.0
+margin_right = 138.0
+margin_bottom = 76.0
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = ExtResource( 13 )
 
 [node name="Goal" type="Panel" parent="Panels"]
 anchor_left = 0.5
@@ -224,7 +306,7 @@ margin_top = 18.0
 margin_right = 139.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 7 )
-text = "reverse your controls"
+text = "reverses your controls"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -338,8 +420,10 @@ __meta__ = {
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 anims/goal-obstacle = SubResource( 8 )
+anims/goal-option = SubResource( 12 )
 anims/obstacle-goal = SubResource( 9 )
 anims/obstacle-powerup = SubResource( 10 )
+anims/option-goal = SubResource( 13 )
 anims/powerup-obstacle = SubResource( 11 )
 
 [node name="Next" type="Button" parent="."]
