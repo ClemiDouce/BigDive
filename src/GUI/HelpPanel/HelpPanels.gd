@@ -1,44 +1,58 @@
 extends Control
 
-onready var animation = $Transition
+onready var tween : Tween = $Transition
 onready var next_button = $Next
 onready var before_button = $Before
+onready var panels = $Panels
 
-const panel_list = ["option", "goal", "obstacle", "powerup"]
+const panel_list = ["option", "goal", "controls", "obstacle", "powerup"]
+var index = 1
 
 const button_sound = preload("res://assets/sounds/br_bouton.wav")
 
 export (String) var actual_panel = "goal" setget set_actual_panel
 
 
-func _on_Next_pressed():
-	MusicManager.play_sound(button_sound)
-	if actual_panel == "goal":
-		animation.play("goal-obstacle")
-		self.actual_panel = "obstacle"
-	elif actual_panel == "obstacle":
-		animation.play("obstacle-powerup")
-		self.actual_panel = "powerup"		
+func move_panels(dir: String):
+	var goal_pos := Vector2()
+	if dir=="left":
+		goal_pos = Vector2(panels.position.x + 162,panels.position.y)
+	elif dir=="right":
+		goal_pos = Vector2(panels.position.x - 162,panels.position.y)
+	tween.interpolate_property(panels, 'position', panels.position, goal_pos, 0.5)		
+	tween.start()
 
+func _on_Next_pressed():
+	if not tween.is_active():
+		MusicManager.play_sound(button_sound)
+		index += 1
+		self.actual_panel = panel_list[index]
+		move_panels("right")
 
 func _on_Before_pressed():
-	MusicManager.play_sound(button_sound)
-	if actual_panel == "obstacle":
-		animation.play("obstacle-goal")
-		self.actual_panel = "goal"		
-	elif actual_panel == "powerup":
-		animation.play("powerup-obstacle")
-		self.actual_panel = "obstacle"		
+	if not tween.is_active():
+		MusicManager.play_sound(button_sound)
+		index -= 1
+		self.actual_panel = panel_list[index]
+		move_panels("left")
 
 func set_actual_panel(new_panel):
 	actual_panel = new_panel
-	match(actual_panel):
-		"goal":
-			before_button.visible = false
-			next_button.visible = true
-		"obstacle":
-			before_button.visible = true
-			next_button.visible = true
-		"powerup":
-			before_button.visible = true
-			next_button.visible = false
+	if self.index == panel_list.size() - 1:
+		#dernier element
+		next_button.visible = false
+	elif self.index == 0:
+		#premier element
+		before_button.visible = false
+	else:
+		next_button.visible = true
+		before_button.visible = true
+		
+
+
+func _on_Music_Slider_value_changed(value):
+	MusicManager.music_level = value
+
+
+func _on_Sound_Slider_value_changed(value):
+	MusicManager.sound_level = value

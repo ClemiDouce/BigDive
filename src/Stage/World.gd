@@ -12,11 +12,10 @@ const play_button = preload("res://assets/sounds/br_play.wav")
 var base_color = Color("#a1a1a5")
 var end_color = Color("#3e3e52")
 
-signal goal_achieved
-
 var score = 0 setget set_score
 
 func _ready():
+# warning-ignore:return_value_discarded
 	Global.connect("get_item", self, "_on_Player_get_item")
 	MusicManager.play_music('menu')
 

@@ -103,6 +103,7 @@ func animate(delta):
 		rotation_degrees = lerp(rotation_degrees, ROTATION_ANGLE, delta * ROTATION_SPEED)
 	else:
 		rotation_degrees = lerp(rotation_degrees, 0, delta * ROTATION_SPEED)
+	$MoveSound.volume_db = -15 if velocity != Vector2.ZERO else -60
 
 func use_shock_wave():
 	shock_animation.play("shock")

@@ -15,7 +15,7 @@ func _ready():
 	start = pos_begin.global_position
 	end = pos_end.global_position
 
-func _process(delta):
+func _process(_delta):
 	if Engine.editor_hint:
 		update()
 

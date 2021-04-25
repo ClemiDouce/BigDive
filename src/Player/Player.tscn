@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprite/Sonde.png" type="Texture" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sprite/Bouclier.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprite/Onde.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprite/Bulle.png" type="Texture" id=6]
+[ext_resource path="res://assets/sounds/br_sonde_move.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.8728, 12.0614 )
@@ -167,6 +168,11 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( 7 )
 texture = ExtResource( 6 )
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Player"
 
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
 [connection signal="timeout" from="ShockTimer" to="." method="_on_ShockTimer_timeout"]
