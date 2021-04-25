@@ -8,8 +8,9 @@ onready var shock_timer = $ShockTimer
 onready var slow_timer = $SlowTimer
 onready var shield_timer = $ShieldTimer
 onready var shock_animation = $AnimationPlayer
+onready var dash_particle = $DashParticle
 
-const SPEED = 200
+var SPEED = 200
 const ROTATION_SPEED = 10
 const ROTATION_ANGLE = 33
 
@@ -18,10 +19,11 @@ var ExplosionEffect = preload("res://src/Effect/ExplosionEffect.tscn")
 var is_slowed = false setget set_is_slowed
 var is_shocked = false setget set_is_shocked
 var is_shielded = false setget set_is_shielded
+var is_dashing = false
 export (bool) var activated = false
 
-var actual_item = "" setget set_actual_item
-var item_charge = 0 setget set_item_charge
+var actual_item = "dash" setget set_actual_item
+var item_charge = 3 setget set_item_charge
 
 
 var velocity = Vector2.ZERO
@@ -39,8 +41,14 @@ func _physics_process(delta):
 	if activated:
 		move(delta)
 		animate(delta)
+
+func reset():
+	self.is_shocked = false
+	self.is_shielded = false
+	self.is_slowed = false
 	
 func loose():
+	reset()
 	var death_inst = ExplosionEffect.instance()
 	get_parent().add_child(death_inst)
 	death_inst.position = self.position
@@ -58,10 +66,10 @@ func use_item():
 		"shock":
 			use_shock_wave()
 		'dash':
-			print('Dash used')
+			use_dash()
 	self.item_charge -= 1
 
-func move(_delta):
+func move(delta):
 	var direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
@@ -91,8 +99,14 @@ func use_shock_wave():
 		for bodie in bodies:
 			bodie.destroy()
 
-func use_dash(_direction):
-	pass
+func use_dash():
+	var reverse_velocity = velocity.normalized() * -1
+	var final_vector = Vector3(reverse_velocity.x, reverse_velocity.y, 0)
+	dash_particle.process_material.set('direction', final_vector)
+	dash_particle.emitting = true
+	is_dashing = true
+	SPEED *= 3
+	$DashTimer.start()
 	
 func set_is_slowed(new_value):
 	is_slowed = new_value
@@ -145,3 +159,8 @@ func _on_ShockTimer_timeout():
 
 func _on_SlowTimer_timeout():
 	self.is_slowed = false
+
+
+func _on_DashTimer_timeout():
+	SPEED = 200
+	is_dashing = false

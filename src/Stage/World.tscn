@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/sprite/Background.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprite/HUD-Power-up.png" type="Texture" id=2]
@@ -13,19 +13,26 @@
 [ext_resource path="res://src/GUI/HelpPanel/HelpPanels.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/fonts/PixelFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://assets/resource/pixel_style_box.tres" type="StyleBox" id=13]
-[ext_resource path="res://assets/sprite/logo.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprite/Logo.png" type="Texture" id=14]
 [ext_resource path="res://src/Generators/ObstacleGenerator.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/video/mu_rickrolled.webm" type="VideoStream" id=16]
 [ext_resource path="res://assets/fonts/Myope.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://assets/sprite/Bottom.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=8]
+extra_spacing_top = -12
+extra_spacing_char = -1
+extra_spacing_space = -3
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=1]
 extra_spacing_top = -4
 extra_spacing_bottom = -4
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "death"
 length = 4.0
 tracks/0/type = "bezier"
@@ -215,7 +222,151 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
+resource_name = "endgame"
+length = 15.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Décors/Bottom:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Décors/Bottom:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 256, -0.25, 0, 0.25, 0, 167, -1.12749, 2.97966, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:activated")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Player:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 80, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 15 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Player:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 20, -0.25, 0, 0.25, 0, 221, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 15 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/EndVideo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("GUI/EndVideo/VideoPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GUI/EndDialog/FirstPanel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3, 3.3, 5.7, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("GUI/EndDialog/SecondPanel:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 5.7, 6, 8.6, 8.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("GUI/EndDialog/ThirdPanel:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 8.6, 8.9, 10.9, 11.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("GUI/EndDialog/EndPanel:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 10.9, 11.2, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_player_tween"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
 resource_name = "intro"
 length = 3.0
 tracks/0/type = "bezier"
@@ -359,7 +510,7 @@ tracks/12/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("GUI/HUD-Power-up:visible")
@@ -534,33 +685,50 @@ tracks/14/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3, 130 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 80, 3 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 159.0
+margin_bottom = 256.0
+color = Color( 0.631373, 0.631373, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Décors" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite" parent="Décors"]
-position = Vector2( 0, -133 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Ponton" type="Sprite" parent="Décors"]
-position = Vector2( -98, 49 )
+position = Vector2( 0, 49 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="Surface" type="Sprite" parent="Décors"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, 131 )
 texture = ExtResource( 6 )
 centered = false
 
+[node name="Bottom" type="Sprite" parent="Décors"]
+position = Vector2( 0, 256 )
+texture = ExtResource( 18 )
+centered = false
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -15, 105 )
+position = Vector2( 83, 105 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="HUD-Power-up" type="TextureRect" parent="GUI"]
-visible = false
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 25.0
@@ -578,7 +746,6 @@ centered = false
 hframes = 3
 
 [node name="HUD-Score" type="TextureRect" parent="GUI"]
-visible = false
 margin_left = 93.0
 margin_top = 1.0
 margin_right = 159.0
@@ -601,7 +768,6 @@ __meta__ = {
 }
 
 [node name="HUD-Play" type="TextureButton" parent="GUI"]
-visible = false
 margin_left = 105.0
 margin_top = 90.0
 margin_right = 153.0
@@ -625,12 +791,10 @@ __meta__ = {
 }
 
 [node name="HelpPanels" parent="GUI" instance=ExtResource( 11 )]
-visible = false
 margin_top = -251.0
 margin_bottom = 5.0
 
 [node name="Credits" type="Panel" parent="GUI"]
-visible = false
 anchor_right = 1.0
 margin_bottom = 13.0
 custom_styles/panel = ExtResource( 13 )
@@ -667,13 +831,126 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="GUI"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 73.0
-margin_top = 13.0
-margin_right = 177.0
-margin_bottom = 101.0
+margin_left = 89.0
+margin_top = 19.0
+margin_right = 176.0
+margin_bottom = 87.0
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndDialog" type="Control" parent="GUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="FirstPanel" type="Panel" parent="GUI/EndDialog"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 13.0
+margin_top = 135.0
+margin_right = 144.0
+margin_bottom = 175.0
+custom_styles/panel = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/EndDialog/FirstPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 8 )
+text = "That's it.
+You hit the bottom
+..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="SecondPanel" type="Panel" parent="GUI/EndDialog"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 13.0
+margin_top = 135.0
+margin_right = 144.0
+margin_bottom = 175.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="GUI/EndDialog/SecondPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 14.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 8 )
+text = "You have survived all the dangers of the deep ..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ThirdPanel" type="Panel" parent="GUI/EndDialog"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 13.0
+margin_top = 33.0
+margin_right = 144.0
+margin_bottom = 73.0
+custom_styles/panel = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/EndDialog/ThirdPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 8 )
+text = "But it was not in vain ..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="EndPanel" type="Panel" parent="GUI/EndDialog"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 13.0
+margin_top = 33.0
+margin_right = 144.0
+margin_bottom = 118.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/EndDialog/EndPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 8 )
+text = "What wonderful treasure, what incredible wealth can be found in a box?
+
+It's time to find out !"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -682,7 +959,9 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -702,20 +981,46 @@ margin_right = 80.0
 margin_bottom = 80.0
 stream = ExtResource( 16 )
 
-[node name="TopLabel" type="Label" parent="GUI/EndVideo"]
-anchor_right = 1.0
+[node name="TopPanel" type="Panel" parent="GUI/EndVideo"]
+margin_right = 160.0
 margin_bottom = 45.0
+custom_styles/panel = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopLabel" type="Label" parent="GUI/EndVideo/TopPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -22.5
+margin_right = 80.0
+margin_bottom = 22.5
 custom_fonts/font = ExtResource( 12 )
 text = "Thanks for playing !"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="DownLabel" type="Label" parent="GUI/EndVideo"]
+[node name="DownPanel" type="Panel" parent="GUI/EndVideo"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -46.0
-custom_fonts/font = SubResource( 8 )
+margin_top = -42.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="DownLabel" type="Label" parent="GUI/EndVideo/DownPanel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -42.0
+custom_fonts/font = SubResource( 1 )
 text = "See you later !
 Frerobin and Dupy
 <3"
@@ -727,13 +1032,51 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "intro"
-anims/death = SubResource( 7 )
-anims/intro = SubResource( 4 )
-anims/startGame = SubResource( 6 )
+anims/death = SubResource( 2 )
+anims/endgame = SubResource( 5 )
+anims/intro = SubResource( 3 )
+anims/startGame = SubResource( 4 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 15 )]
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.018
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2( -11, 0 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 8, 130 )
+shape = SubResource( 6 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 155, 0 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2( 8, 130 )
+shape = SubResource( 6 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2( 77, 256 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2( 3, 3 )
+shape = SubResource( 7 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2( 77, -6 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+position = Vector2( 3, 3 )
+shape = SubResource( 7 )
 
 [connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 [connection signal="pressed" from="GUI/HUD-Play" to="." method="_on_HUDPlay_pressed"]

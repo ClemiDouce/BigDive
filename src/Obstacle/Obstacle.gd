@@ -19,19 +19,21 @@ func destroy():
 	queue_free()
 
 func _on_Hurtbox_body_entered(player):
-	match(obs_type):
-		TYPE.SHOCK:
-			player.is_shocked = true
-			self.destroy()
-		TYPE.SLOW:
-			player.is_slowed = true
-			self.destroy()
-		TYPE.DEATH:
-			if player.is_shielded:
-				self.destroy()
-				player.is_shielded = false
-			else:
-				player.loose()
+	if !player.activated or player.is_dashing:
+		destroy()
+	else:
+		match(obs_type):
+			TYPE.SHOCK:
+				player.is_shocked = true
+			TYPE.SLOW:
+				player.is_slowed = true
+			TYPE.DEATH:
+				if player.is_shielded:
+					player.is_shielded = false
+				else:
+					player.loose()
+		destroy()
+			
 
 
 func _on_VisibilityNotifier2D_screen_exited():
