@@ -2,7 +2,7 @@
 
 Game created for the Ludum Dare 48 with the Godot engine
 
-You play a drone that must reach the bottom to find a priceless treasure.
+You play a drone that must reach the bottom of the ocean to find a priceless treasure.
 
 Avoid sea urchins, eels and algae that want to block your way to your future fortune.
 
