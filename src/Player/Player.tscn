@@ -76,9 +76,27 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
+"args": [  ],
+"method": "kill_shock"
+}, {
 "args": [  ],
 "method": "kill_shock"
 }, {
@@ -101,7 +119,7 @@ angular_velocity = 30.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color = Color( 1, 1, 1, 0.454902 )
+color = Color( 1, 1, 1, 0.117647 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )

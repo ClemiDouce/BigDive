@@ -98,11 +98,11 @@ func move(_delta):
 func animate(delta):
 	#TODO implement recul rotation
 	if velocity.x > 0:
-		rotation_degrees = lerp(rotation_degrees, -ROTATION_ANGLE, delta * ROTATION_SPEED)
+		$Drone.rotation_degrees = lerp($Drone.rotation_degrees, -ROTATION_ANGLE, delta * ROTATION_SPEED)
 	elif velocity.x < 0:
-		rotation_degrees = lerp(rotation_degrees, ROTATION_ANGLE, delta * ROTATION_SPEED)
+		$Drone.rotation_degrees = lerp($Drone.rotation_degrees, ROTATION_ANGLE, delta * ROTATION_SPEED)
 	else:
-		rotation_degrees = lerp(rotation_degrees, 0, delta * ROTATION_SPEED)
+		$Drone.rotation_degrees = lerp($Drone.rotation_degrees, 0, delta * ROTATION_SPEED)
 	$MoveSound.volume_db = -15 if velocity != Vector2.ZERO else -60
 
 func use_shock_wave():

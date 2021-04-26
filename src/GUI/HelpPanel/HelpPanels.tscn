@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/resource/pixel_style_box.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/fonts/PixelFont.tres" type="DynamicFont" id=2]
@@ -15,53 +15,64 @@
 [ext_resource path="res://assets/resource/slider_pixel.tres" type="StyleBox" id=13]
 [ext_resource path="res://assets/sprite/grabber.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprite/controls_icons.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprite/difficulty_arrow.png" type="Texture" id=16]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.788235, 0.792157, 0.862745, 1 )
 border_width_top = 4
 border_width_bottom = 4
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+extra_spacing_top = -2
+extra_spacing_char = -1
+extra_spacing_space = -3
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
 extra_spacing_top = -8
 extra_spacing_bottom = -3
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 12 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 29, 3 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 7 )
 region = Rect2( 29, 0, 29, 3 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 17, 18 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 8 )
 region = Rect2( 17, 0, 17, 18 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=12]
 extra_spacing_bottom = -11
 extra_spacing_char = -1
 extra_spacing_space = -3
@@ -82,6 +93,52 @@ __meta__ = {
 }
 
 [node name="Panels" type="Node2D" parent="."]
+
+[node name="Credits" type="Panel" parent="Panels"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -319.0
+margin_top = 131.0
+margin_right = -169.0
+margin_bottom = 248.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panels/Credits"]
+modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -46.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title2" type="Label" parent="Panels/Credits"]
+modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -71.0
+margin_top = 21.0
+margin_right = 71.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 2 )
+text = "Graphism : Frerobin
+Sound : Frerobin
+Code: Dupy
+font: Subjugate by Somepx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Option" type="Panel" parent="Panels"]
 anchor_left = 0.5
@@ -115,9 +172,9 @@ __meta__ = {
 [node name="MusicBar" type="Label" parent="Panels/Option"]
 modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
 margin_left = 11.0
-margin_top = 29.0
+margin_top = 22.0
 margin_right = 55.0
-margin_bottom = 45.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 2 )
 text = "Music :"
 __meta__ = {
@@ -126,13 +183,14 @@ __meta__ = {
 
 [node name="Music_Slider" type="HSlider" parent="Panels/Option"]
 margin_left = 54.0
-margin_top = 30.0
+margin_top = 23.0
 margin_right = 138.0
-margin_bottom = 46.0
+margin_bottom = 39.0
 custom_icons/grabber_highlight = ExtResource( 14 )
 custom_icons/grabber = ExtResource( 14 )
 custom_styles/slider = ExtResource( 13 )
-custom_styles/grabber_area = SubResource( 8 )
+custom_styles/grabber_area_highlight = SubResource( 1 )
+custom_styles/grabber_area = SubResource( 1 )
 value = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,23 +199,106 @@ __meta__ = {
 [node name="SoundBar" type="Label" parent="Panels/Option"]
 modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
 margin_left = 11.0
-margin_top = 58.0
+margin_top = 45.0
 margin_right = 55.0
-margin_bottom = 74.0
+margin_bottom = 61.0
 custom_fonts/font = ExtResource( 2 )
 text = "Sound :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Difficulty" type="Label" parent="Panels/Option"]
+modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.0
+margin_top = -57.0
+margin_right = 31.0
+margin_bottom = -41.0
+custom_fonts/font = ExtResource( 2 )
+text = "Difficulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sound_Slider" type="HSlider" parent="Panels/Option"]
 margin_left = 54.0
-margin_top = 60.0
+margin_top = 47.0
 margin_right = 138.0
-margin_bottom = 76.0
+margin_bottom = 63.0
+custom_icons/grabber_highlight = ExtResource( 14 )
 custom_icons/grabber = ExtResource( 14 )
 custom_styles/slider = ExtResource( 13 )
-custom_styles/grabber_area = SubResource( 8 )
+custom_styles/grabber_area_highlight = SubResource( 1 )
+custom_styles/grabber_area = SubResource( 1 )
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard" type="Button" parent="Panels/Option"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = 18.5
+margin_right = 51.0
+margin_bottom = 36.5
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="TextureRect" parent="Panels/Option/Hard"]
+margin_left = -7.0
+margin_top = 3.0
+margin_right = -1.0
+margin_bottom = 15.0
+texture = ExtResource( 16 )
+
+[node name="Easy" type="Button" parent="Panels/Option"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = 18.5
+margin_right = -7.0
+margin_bottom = 36.5
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="TextureRect" parent="Panels/Option/Easy"]
+visible = false
+margin_left = -7.0
+margin_top = 3.0
+margin_right = -1.0
+margin_bottom = 15.0
+texture = ExtResource( 16 )
 
 [node name="Goal" type="Panel" parent="Panels"]
 anchor_left = 0.5
@@ -247,7 +388,7 @@ margin_left = 55.0
 margin_top = 36.0
 margin_right = 146.0
 margin_bottom = 89.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 5 )
 text = "Arrows keys to move
 
 
@@ -285,14 +426,12 @@ __meta__ = {
 
 [node name="Anguille" type="AnimatedSprite" parent="Panels/Obstacles"]
 position = Vector2( 19.5, 34.5 )
-frames = SubResource( 3 )
-frame = 1
+frames = SubResource( 8 )
 playing = true
 
 [node name="Algue" type="AnimatedSprite" parent="Panels/Obstacles"]
 position = Vector2( 20.5, 56.5 )
-frames = SubResource( 6 )
-frame = 1
+frames = SubResource( 11 )
 playing = true
 
 [node name="AnimatedSprite" type="Sprite" parent="Panels/Obstacles"]
@@ -305,7 +444,7 @@ margin_left = 38.0
 margin_top = 18.0
 margin_right = 139.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "reverses your controls"
 autowrap = true
 __meta__ = {
@@ -318,7 +457,7 @@ margin_left = 38.0
 margin_top = 42.0
 margin_right = 139.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "Slows you"
 autowrap = true
 __meta__ = {
@@ -331,7 +470,7 @@ margin_left = 38.0
 margin_top = 66.0
 margin_right = 139.0
 margin_bottom = 93.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "Kills you"
 autowrap = true
 __meta__ = {
@@ -385,7 +524,7 @@ margin_left = 38.0
 margin_top = 18.0
 margin_right = 147.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "Remove malus and protect you 5 s"
 autowrap = true
 __meta__ = {
@@ -398,7 +537,7 @@ margin_left = 38.0
 margin_top = 42.0
 margin_right = 139.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "go fast in one direction"
 autowrap = true
 __meta__ = {
@@ -411,7 +550,7 @@ margin_left = 38.0
 margin_top = 66.0
 margin_right = 139.0
 margin_bottom = 93.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "kill all obstacle in area"
 autowrap = true
 __meta__ = {
@@ -419,12 +558,14 @@ __meta__ = {
 }
 
 [node name="Next" type="Button" parent="."]
-margin_left = 132.0
+margin_left = 131.0
 margin_top = 225.0
 margin_right = 152.0
 margin_bottom = 245.0
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -432,12 +573,29 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="Next"]
 modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
-margin_left = 3.0
-margin_top = 4.0
-margin_right = 17.0
-margin_bottom = 16.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -6.0
+margin_right = -3.0
+margin_bottom = 6.0
 texture = ExtResource( 4 )
 flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Next"]
+visible = false
+modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 54.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 2 )
+text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -445,10 +603,12 @@ __meta__ = {
 [node name="Before" type="Button" parent="."]
 margin_left = 9.0
 margin_top = 225.0
-margin_right = 29.0
+margin_right = 31.0
 margin_bottom = 245.0
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -465,9 +625,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="Before"]
+visible = false
+modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 54.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 2 )
+text = "options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Transition" type="Tween" parent="."]
 
 [connection signal="value_changed" from="Panels/Option/Music_Slider" to="." method="_on_Music_Slider_value_changed"]
 [connection signal="value_changed" from="Panels/Option/Sound_Slider" to="." method="_on_Sound_Slider_value_changed"]
+[connection signal="pressed" from="Panels/Option/Hard" to="." method="_on_Hard_pressed"]
+[connection signal="pressed" from="Panels/Option/Easy" to="." method="_on_Easy_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Before" to="." method="_on_Before_pressed"]

@@ -25,7 +25,8 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func _on_Powerup_body_entered(player):
-	player.actual_item = power_name
+	if player.activated:
+		player.actual_item = power_name
 	queue_free()
 
 

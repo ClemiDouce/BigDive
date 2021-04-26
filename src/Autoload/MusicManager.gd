@@ -13,8 +13,8 @@ const music_abyss = preload("res://assets/music/mu_abysses.ogg")
 const MUSIC_BUS_INDEX = 1
 const SOUND_BUS_INDEX = 2
 
-var music_level : float = 100.0 setget set_music_level
-var sound_level : float = 100.0 setget set_sound_level
+var music_level : float = 50.0 setget set_music_level
+var sound_level : float = 50.0 setget set_sound_level
 var paused = false
 var pause_break = false
 

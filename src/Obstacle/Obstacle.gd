@@ -19,8 +19,9 @@ func _physics_process(_delta):
 # warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 
-func destroy():
-	MusicManager.play_sound(enemy_dead)
+func destroy(dead_sound: bool = true):
+	if dead_sound:
+		MusicManager.play_sound(enemy_dead)
 	queue_free()
 
 func _on_Hurtbox_body_entered(player):
@@ -39,7 +40,7 @@ func _on_Hurtbox_body_entered(player):
 				MusicManager.play_sound(algue_sound)				
 			TYPE.DEATH:
 				player.loose()
-		destroy()
+		destroy(false)
 			
 
 

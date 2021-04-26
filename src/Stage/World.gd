@@ -5,6 +5,7 @@ onready var powerup_sprite = $"GUI/HUD-Power-up/ActualPower"
 onready var color_rect = $ColorRect
 onready var player_tween = $PlayerTween
 onready var color_tween = $ColorTween
+onready var generator = $ObstacleGenerator
 
 const item_looted = preload("res://assets/sounds/br_powerup_ramasser.wav")
 const play_button = preload("res://assets/sounds/br_play.wav")
@@ -13,6 +14,7 @@ var base_color = Color("#a1a1a5")
 var end_color = Color("#3e3e52")
 
 var score = 0 setget set_score
+var buffer_level = 0
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -57,7 +59,11 @@ func _on_ScoreTimer_timeout():
 func set_score(new_value):
 	score = new_value
 	$"GUI/HUD-Score/Score".text = "Depth : " + str(score)
-	if score >= 1000:
+	if score / 1000 != generator.difficulty_level:
+		generator.difficulty_level += 1
+		print(generator.difficulty_level)
+	
+	if score >= 10000:
 		$ScoreTimer.stop()
 		animation.play("endgame")
 
