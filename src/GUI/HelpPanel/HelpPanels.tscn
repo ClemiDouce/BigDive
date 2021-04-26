@@ -135,7 +135,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Graphism : Frerobin
 Sound : Frerobin
 Code: Dupy
-font: Subjugate by Somepx"
+font: myope by Somepx"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -427,11 +427,13 @@ __meta__ = {
 [node name="Anguille" type="AnimatedSprite" parent="Panels/Obstacles"]
 position = Vector2( 19.5, 34.5 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Algue" type="AnimatedSprite" parent="Panels/Obstacles"]
 position = Vector2( 20.5, 56.5 )
 frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite" type="Sprite" parent="Panels/Obstacles"]
@@ -538,7 +540,7 @@ margin_top = 42.0
 margin_right = 139.0
 margin_bottom = 69.0
 custom_fonts/font = SubResource( 12 )
-text = "go fast in one direction"
+text = "go fast in your current direction"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

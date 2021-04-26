@@ -726,6 +726,7 @@ activated = true
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="HUD-Power-up" type="Panel" parent="GUI"]
+visible = false
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 25.0

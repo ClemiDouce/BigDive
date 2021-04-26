@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ludum48"
+config/name="BigDive"
 run/main_scene="res://src/Stage/World.tscn"
 config/icon="res://assets/icons/icon.png"
 
