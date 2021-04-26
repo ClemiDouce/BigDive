@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 100
+var SPEED = 100
 const anguille_sound = preload("res://assets/sounds/br_anguille.wav")
 const algue_sound = preload("res://assets/sounds/br_algues.wav")
 const enemy_dead = preload("res://assets/sounds/br_ennemi_meurt.wav")
@@ -10,7 +10,8 @@ enum TYPE {SHOCK, SLOW, DEATH}
 var velocity = Vector2.ZERO
 var obs_type = TYPE.DEATH
 
-func start(pos, vel):
+func start(pos, vel, speed):
+	SPEED = speed
 	position = pos
 	velocity = vel * SPEED
 	$Sprite.flip_h = velocity.x > 0

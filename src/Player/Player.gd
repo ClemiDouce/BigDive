@@ -74,13 +74,16 @@ func use_item():
 	match(actual_item):
 		"shield":
 			self.is_shielded = true
+			self.item_charge -= 1
 		"shock":
 			MusicManager.play_sound(shock_sound)
 			use_shock_wave()
+			self.item_charge -= 1
 		'dash':
-			MusicManager.play_sound(dash_sound)
-			use_dash()
-	self.item_charge -= 1
+			if velocity != Vector2.ZERO:
+				MusicManager.play_sound(dash_sound)
+				use_dash()
+				self.item_charge -= 1
 
 func move(_delta):
 	var direction = Vector2(
@@ -103,15 +106,19 @@ func animate(delta):
 		$Drone.rotation_degrees = lerp($Drone.rotation_degrees, ROTATION_ANGLE, delta * ROTATION_SPEED)
 	else:
 		$Drone.rotation_degrees = lerp($Drone.rotation_degrees, 0, delta * ROTATION_SPEED)
-	$MoveSound.volume_db = -15 if velocity != Vector2.ZERO else -60
-
+	$MoveSound.volume_db = 12 if velocity != Vector2.ZERO else -60
+#	if shock_timer.time_left < 2:
+#		sprite.frame = 0 if shock_timer.time_left % 0.5 == 0 else 2
+#	if shield_timer.time_left < 2:
+#		sprite.frame = 0 if shield_timer.time_left % 0.5 == 0 else 3
+#	if slow_timer.time_left < 2:
+#		sprite.frame = 0 if shield_timer.time_left % 0.5 == 0 else 2
 func use_shock_wave():
 	shock_animation.play("shock")
 
 func kill_shock():
 	var bodies = shock_wave_area.get_overlapping_bodies()
 	if bodies.size() > 0:
-		print('Bodies count : ' + str(bodies.size()))
 		for bodie in bodies:
 			bodie.destroy()
 
@@ -149,10 +156,13 @@ func set_is_shielded(new_value):
 		self.is_slowed = false
 		shield_timer.start()
 		sprite.frame = 3
-		MusicManager.play_sound(shield_sound)
+		if activated:
+			MusicManager.play_sound(shield_sound)
 	else:
 		sprite.frame = 0
-		MusicManager.play_sound(shield_lost)
+		shield_timer.stop()
+		if activated:
+			MusicManager.play_sound(shield_lost)
 		
 	shield.visible = new_value
 	is_shielded = new_value

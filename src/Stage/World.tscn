@@ -77,7 +77,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 1, 3.5 )
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("GUI/Credits:visible")
+tracks/4/path = NodePath("GUI/HUD-Play:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -89,7 +89,7 @@ tracks/4/keys = {
 "values": [ false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("GUI/HUD-Play:visible")
+tracks/5/path = NodePath("GUI/HelpPanels:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -101,71 +101,71 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("GUI/HelpPanels:visible")
+tracks/6/path = NodePath("GUI/Logo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 1, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("GUI/Logo:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0, 2.5, 3.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Décors/Surface:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 tracks/8/type = "bezier"
-tracks/8/path = NodePath("Décors/Surface:position:x")
+tracks/8/path = NodePath("Décors/Surface:position:y")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -2, -0.25, 0, 0.25, 0, 131, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("Décors/Surface:position:y")
+tracks/9/path = NodePath("Décors/Background:position:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"points": PoolRealArray( -2, -0.25, 0, 0.25, 0, 131, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
 tracks/10/type = "bezier"
-tracks/10/path = NodePath("Décors/Background:position:x")
+tracks/10/path = NodePath("Décors/Background:position:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -133, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
-tracks/11/type = "bezier"
-tracks/11/path = NodePath("Décors/Background:position:y")
+tracks/11/type = "value"
+tracks/11/path = NodePath("Player:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"points": PoolRealArray( -133, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Player:visible")
+tracks/12/path = NodePath("GUI/HUD-Power-up:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -174,10 +174,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("GUI/HUD-Power-up:visible")
+tracks/13/path = NodePath("GUI/HUD-Score:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -189,7 +189,7 @@ tracks/13/keys = {
 "values": [ false ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("GUI/HUD-Score:visible")
+tracks/14/path = NodePath("GUI/Logo:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -198,33 +198,21 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("GUI/Logo:visible")
+tracks/15/type = "bezier"
+tracks/15/path = NodePath("Player:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/16/type = "bezier"
-tracks/16/path = NodePath("Player:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=5]
-length = 15.0
+length = 20.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Décors/Bottom:position:x")
 tracks/0/interp = 1
@@ -252,7 +240,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 15 ),
+"times": PoolRealArray( 0, 20 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -264,7 +252,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 15 ),
+"times": PoolRealArray( 20 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -278,7 +266,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3, 3.3, 5.7, 6 ),
+"times": PoolRealArray( 0, 3, 3.3, 6.8, 7.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -290,7 +278,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 5.7, 6, 8.6, 8.9 ),
+"times": PoolRealArray( 0, 6.8, 7.1, 9.7, 10 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -302,7 +290,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 8.6, 8.9, 10.9, 11.2 ),
+"times": PoolRealArray( 0, 9.7, 10, 13.9, 14.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -314,7 +302,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 10.9, 11.2, 15 ),
+"times": PoolRealArray( 0, 13.9, 14.2, 20 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -391,7 +379,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 4.5 )
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("GUI/Credits:visible")
+tracks/4/path = NodePath("GUI/HUD-Play:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -403,7 +391,7 @@ tracks/4/keys = {
 "values": [ false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("GUI/HUD-Play:visible")
+tracks/5/path = NodePath("GUI/HelpPanels:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -415,51 +403,49 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("GUI/HelpPanels:visible")
+tracks/6/path = NodePath("GUI/Logo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("GUI/Logo:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0, 3.6, 5.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Décors/Surface:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 tracks/8/type = "bezier"
-tracks/8/path = NodePath("Décors/Surface:position:x")
+tracks/8/path = NodePath("Décors/Surface:position:y")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 131, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("Décors/Surface:position:y")
+tracks/9/path = NodePath("Décors/Background:position:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"points": PoolRealArray( 131, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/10/type = "bezier"
-tracks/10/path = NodePath("Décors/Background:position:x")
+tracks/10/path = NodePath("Décors/Background:position:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -468,23 +454,13 @@ tracks/10/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/11/type = "bezier"
-tracks/11/path = NodePath("Décors/Background:position:y")
+tracks/11/type = "value"
+tracks/11/path = NodePath("GUI/Logo:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("GUI/Logo:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -541,25 +517,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("GUI/Credits:visible")
+tracks/4/type = "method"
+tracks/4/path = NodePath("ObstacleGenerator")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/5/type = "method"
-tracks/5/path = NodePath("ObstacleGenerator")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -567,8 +531,20 @@ tracks/5/keys = {
 "method": "start"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/Logo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/6/type = "value"
-tracks/6/path = NodePath("GUI/Logo:visible")
+tracks/6/path = NodePath("GUI/HelpPanels:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -579,25 +555,13 @@ tracks/6/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("GUI/HelpPanels:visible")
+tracks/7/type = "method"
+tracks/7/path = NodePath("ScoreTimer")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath("ScoreTimer")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -605,73 +569,73 @@ tracks/8/keys = {
 "method": "start"
 } ]
 }
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Décors/Ponton:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("Décors/Ponton:position:x")
+tracks/9/path = NodePath("Décors/Ponton:position:y")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 49, -0.25, 0, 0.54, 141.351, -84, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/10/type = "bezier"
-tracks/10/path = NodePath("Décors/Ponton:position:y")
+tracks/10/path = NodePath("Décors/Surface:position:x")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"points": PoolRealArray( 49, -0.25, 0, 0.54, 141.351, -84, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/11/type = "bezier"
-tracks/11/path = NodePath("Décors/Surface:position:x")
+tracks/11/path = NodePath("Décors/Surface:position:y")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 132, -0.25, 0, 0.54, 141.351, -2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/12/type = "bezier"
-tracks/12/path = NodePath("Décors/Surface:position:y")
+tracks/12/path = NodePath("Décors/Background:position:x")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"points": PoolRealArray( 132, -0.25, 0, 0.54, 141.351, -2, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
 tracks/13/type = "bezier"
-tracks/13/path = NodePath("Décors/Background:position:x")
+tracks/13/path = NodePath("Décors/Background:position:y")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0.950855, -0.25, 0, 0.54, 141.351, -133, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2 )
 }
-tracks/14/type = "bezier"
-tracks/14/path = NodePath("Décors/Background:position:y")
+tracks/14/type = "method"
+tracks/14/path = NodePath(".")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"points": PoolRealArray( 0.950855, -0.25, 0, 0.54, 141.351, -133, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 2 )
-}
-tracks/15/type = "method"
-tracks/15/path = NodePath(".")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
 "times": PoolRealArray( 1.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -705,7 +669,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Ponton" type="Sprite" parent="Décors"]
-position = Vector2( 0, -84 )
+position = Vector2( -98, 49 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -720,7 +684,7 @@ texture = ExtResource( 18 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 83, 105 )
+position = Vector2( -15, 105 )
 activated = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -792,45 +756,8 @@ visible = false
 margin_top = -251.0
 margin_bottom = 5.0
 
-[node name="Credits" type="Panel" parent="GUI"]
-visible = false
-anchor_right = 1.0
-margin_bottom = 13.0
-custom_styles/panel = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GUI/Credits"]
-modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 11.0
-margin_top = -3.0
-margin_right = -69.0
-custom_fonts/font = ExtResource( 12 )
-text = "made by frerob"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GUI/Credits"]
-modulate = Color( 0.0588235, 0.0705882, 0.180392, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 86.0
-margin_top = -3.0
-margin_right = 6.0
-custom_fonts/font = ExtResource( 12 )
-text = "in and dupy"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Logo" type="TextureRect" parent="GUI"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 40.0
 margin_top = 14.0
 margin_right = 127.0
@@ -871,11 +798,14 @@ margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 2 )
 text = "That's it.
-You hit the bottom
+You have reached the bottom
 ..."
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SecondPanel" type="Panel" parent="GUI/EndDialog"]
 modulate = Color( 1, 1, 1, 0 )
@@ -885,6 +815,9 @@ margin_right = 144.0
 margin_bottom = 175.0
 mouse_filter = 2
 custom_styles/panel = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="GUI/EndDialog/SecondPanel"]
 modulate = Color( 0, 0, 0, 1 )
@@ -895,7 +828,7 @@ margin_top = 14.0
 margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 2 )
-text = "You have survived all the dangers of the deep ..."
+text = "You have survived all the dangers of the deeps ..."
 align = 1
 valign = 1
 autowrap = true
@@ -924,7 +857,7 @@ margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 2 )
-text = "But it was not in vain ..."
+text = "And it was not in vain ..."
 align = 1
 valign = 1
 autowrap = true
@@ -950,7 +883,7 @@ margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 2 )
-text = "What wonderful treasure, what incredible wealth can be found in a box?
+text = "What wonderful treasure, what incredible wealth can be found in this chest?
 
 It's time to find out !"
 align = 1

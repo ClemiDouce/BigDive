@@ -155,7 +155,6 @@ hframes = 4
 visible = false
 position = Vector2( 0, -13 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="ShieldTimer" type="Timer" parent="."]
@@ -190,7 +189,7 @@ texture = ExtResource( 6 )
 [node name="MoveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-bus = "Player"
+bus = "Sound"
 
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
 [connection signal="timeout" from="ShockTimer" to="." method="_on_ShockTimer_timeout"]

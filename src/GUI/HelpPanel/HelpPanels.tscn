@@ -132,8 +132,8 @@ margin_top = 21.0
 margin_right = 71.0
 margin_bottom = 113.0
 custom_fonts/font = ExtResource( 2 )
-text = "Graphism : Frerobin
-Sound : Frerobin
+text = "Graphics : Frerobin
+Sounds/Musics : Frerobin
 Code: Dupy
 font: myope by Somepx"
 __meta__ = {
@@ -339,7 +339,7 @@ margin_top = -97.0
 margin_right = -4.0
 margin_bottom = -4.0
 custom_fonts/font = ExtResource( 2 )
-text = "Go to the bottom of the sea (10000 ft), but be careful, there's obstacle on the road"
+text = "Go to the bottom of the sea (10000 ft), but be careful, there's obstacles on the road"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -389,11 +389,14 @@ margin_top = 36.0
 margin_right = 146.0
 margin_bottom = 89.0
 custom_fonts/font = SubResource( 5 )
-text = "Arrows keys to move
+text = "Arrow keys to move
 
 
 Space to use items"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Obstacles" type="Panel" parent="Panels"]
 anchor_left = 0.5
@@ -527,7 +530,7 @@ margin_top = 18.0
 margin_right = 147.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 12 )
-text = "Remove malus and protect you 5 s"
+text = "Removes malus and protects you 5 sec"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -540,7 +543,7 @@ margin_top = 42.0
 margin_right = 139.0
 margin_bottom = 69.0
 custom_fonts/font = SubResource( 12 )
-text = "go fast in your current direction"
+text = "Dash while moving"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -553,7 +556,7 @@ margin_top = 66.0
 margin_right = 139.0
 margin_bottom = 93.0
 custom_fonts/font = SubResource( 12 )
-text = "kill all obstacle in area"
+text = "Kills all obstacles around you"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

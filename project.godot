@@ -23,6 +23,7 @@ _global_script_class_icons={
 config/name="BigDive"
 run/main_scene="res://src/Stage/World.tscn"
 config/icon="res://assets/icons/icon.png"
+config/windows_native_icon="res://assets/icons/icon2.ico"
 
 [autoload]
 

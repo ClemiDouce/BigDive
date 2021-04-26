@@ -20,6 +20,10 @@ var pause_break = false
 
 var old_volume = 0
 
+func _ready():
+	self.music_level = 50.0
+	self.sound_level = 50.0
+
 func get_music(music: String) -> AudioStreamOGGVorbis:
 	match(music):
 		'menu':
@@ -76,12 +80,12 @@ func music_in():
 
 func set_music_level(new_level: float):
 	music_level = new_level
-	var mapped_level = Utils.remap_range(music_level, 0,100, -60, 0)
+	var mapped_level = Utils.remap_range(music_level, 0,100, -30, 0)
 	AudioServer.set_bus_volume_db(MUSIC_BUS_INDEX, mapped_level)
 
 func set_sound_level(new_level: float):
 	sound_level = new_level
-	var mapped_level = Utils.remap_range(sound_level, 0,100, -60, -6)
+	var mapped_level = Utils.remap_range(sound_level, 0,100, -30, 0)
 	AudioServer.set_bus_volume_db(SOUND_BUS_INDEX, mapped_level)
 
 func play_sound(sound:AudioStreamSample):

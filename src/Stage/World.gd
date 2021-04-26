@@ -61,7 +61,6 @@ func set_score(new_value):
 	$"GUI/HUD-Score/Score".text = "Depth : " + str(score)
 	if score / 1000 != generator.difficulty_level:
 		generator.difficulty_level += 1
-		print(generator.difficulty_level)
 	
 	if score >= 10000:
 		$ScoreTimer.stop()
@@ -86,8 +85,8 @@ func start_player_tween():
 		3, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	player_tween.start()
 	yield(player_tween, "tween_all_completed")
-	player_tween.interpolate_property($Player, 'position', $Player.position, Vector2(80, 234), 
-		12, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	player_tween.interpolate_property($Player, 'position', $Player.position, Vector2(80, 228), 
+		17, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	player_tween.start()
 	yield(player_tween, "tween_all_completed")
 	MusicManager.stop_music(0.2)
