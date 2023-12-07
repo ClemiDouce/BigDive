@@ -6,4 +6,4 @@ You play a drone that must reach the bottom of the ocean to find a priceless tre
 
 Avoid sea urchins, eels and algae that want to block your way to your future fortune.
 
-Windows / Linux / Android / HTML avaiblable to download here : https://thedupy124.itch.io/big-dive
+Windows / Linux / Android / HTML avaiblable to download [here !](https://clemidev.itch.io/big-dive)
